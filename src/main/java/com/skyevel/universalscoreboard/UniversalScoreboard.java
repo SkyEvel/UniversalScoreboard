@@ -11,8 +11,10 @@ public final class UniversalScoreboard extends JavaPlugin {
     public void onEnable() {
 
         instance = this;
-
+        saveDefaultConfig();
         BoardWorker.initialize();
+
+
 
 
         // Plugin startup logic

@@ -34,7 +34,7 @@ public class BoardWorker {
             for(FastBoard board : BOARDS.values()) {
                 updateBoard(board);
             }
-        }, 0, 20L);
+        }, 0, UniversalScoreboard.instance.getConfig().getInt("update-speed"));
     }
 
 }
