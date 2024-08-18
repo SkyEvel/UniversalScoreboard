@@ -1,0 +1,4 @@
+name: UniversalScoreboard
+version: '${project.version}'
+main: com.skyevel.universalscoreboard.UniversalScoreboard
+api-version: 1.19
