@@ -14,16 +14,11 @@ public final class UniversalScoreboard extends JavaPlugin {
         saveDefaultConfig();
         BoardWorker.initialize();
 
-
-
-
-        // Plugin startup logic
-
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+
     }
 
     public static UniversalScoreboard getInstance() {
