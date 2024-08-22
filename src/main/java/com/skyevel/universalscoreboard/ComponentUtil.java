@@ -7,7 +7,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Utility class for converting Strings to {@link Component} and vice versa
@@ -80,9 +79,12 @@ public class ComponentUtil {
    */
   @NotNull
   public static List<String> processStringList(@NotNull List<String> list) {
-    return list.stream()
-      .map(ComponentUtil::formatToString)
-      .collect(Collectors.toCollection(() -> new ArrayList<>(list.size())));
+    ArrayList<String> strings = new ArrayList<>(list.size());
+    for (String s : list) {
+      String string = formatToString(s);
+      strings.add(string);
+    }
+    return strings;
   }
 
   /**
@@ -92,10 +94,13 @@ public class ComponentUtil {
    * @return the processed list
    */
   @NotNull
-  public static List<Component> processComponentList(@NotNull List<String> list) {
-    return list.stream()
-      .map(line -> deserialize(formatToString(line)))
-      .collect(Collectors.toCollection(() -> new ArrayList<>(list.size())));
+  public static List<Component> formatComponentList(@NotNull List<String> list) {
+    ArrayList<Component> components = new ArrayList<>(list.size());
+    for (String line : list) {
+      Component deserialize = deserialize(formatToString(line));
+      components.add(deserialize);
+    }
+    return components;
   }
 
   /**
@@ -106,9 +111,12 @@ public class ComponentUtil {
    */
   @NotNull
   public static List<String> serializeComponentList(@NotNull List<Component> list) {
-    return list.stream()
-      .map(ComponentUtil::serialize)
-      .collect(Collectors.toCollection(() -> new ArrayList<>(list.size())));
+    ArrayList<String> strings = new ArrayList<>(list.size());
+    for (Component component : list) {
+      String serialize = serialize(component);
+      strings.add(serialize);
+    }
+    return strings;
   }
 
   /**
@@ -119,8 +127,11 @@ public class ComponentUtil {
    */
   @NotNull
   public static List<Component> deserializeStringList(@NotNull List<String> list) {
-    return list.stream()
-      .map(ComponentUtil::formatToComponent)
-      .collect(Collectors.toCollection(() -> new ArrayList<>(list.size())));
+    ArrayList<Component> components = new ArrayList<>(list.size());
+    for (String s : list) {
+      Component component = formatToComponent(s);
+      components.add(component);
+    }
+    return components;
   }
 }
