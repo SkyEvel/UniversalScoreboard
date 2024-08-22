@@ -84,10 +84,27 @@ public class AsyncPlayerBoardUpdateEvent extends Event {
 
   /**
    * Overwrite the lines of the current Scoreboard.
+   * @param lines a list of {@link Component}s
+   */
+  public void setLineAsComponents(List<Component> lines) {
+    this.lines = lines;
+  }
+
+  /**
+   * Overwrite the lines of the current Scoreboard.
    *
    * @param lines a list of {@link String}s
    */
   public void setLinesAsStrings(String... lines) {
     this.lines = ComponentUtil.deserializeStringList(List.of(lines));
+  }
+
+  /**
+   * Overwrite the lines of the current Scoreboard.
+   *
+   * @param lines a list of {@link String}s
+   */
+  public void setLinesAsStrings(List<String> lines) {
+    this.lines = ComponentUtil.deserializeStringList(lines);
   }
 }
