@@ -37,10 +37,11 @@ public class UniversalScoreboardAPI {
      *
      * @param player the player
      */
-    public static void createBoard(Player player) {
+    public static FastBoard createBoard(Player player) {
         FastBoard board = new FastBoard(player);
         board.updateTitle(Component.empty());
         BoardWorker.getBoards().add(board);
+        return board;
     }
 
     /**
@@ -49,10 +50,11 @@ public class UniversalScoreboardAPI {
      * @param player the player
      * @param initialTitleComponent the initial title
      */
-    public static void createBoard(Player player, Component initialTitleComponent) {
+    public static FastBoard createBoard(Player player, Component initialTitleComponent) {
         FastBoard board = new FastBoard(player);
         board.updateTitle(initialTitleComponent);
         BoardWorker.getBoards().add(board);
+        return board;
     }
 
     /**
@@ -62,11 +64,12 @@ public class UniversalScoreboardAPI {
      * @param initialTitleComponent the initial title
      * @param initialLineComponents the initial lines
      */
-    public static void createBoard(Player player, Component initialTitleComponent, List<Component> initialLineComponents) {
+    public static FastBoard createBoard(Player player, Component initialTitleComponent, List<Component> initialLineComponents) {
         FastBoard board = new FastBoard(player);
         board.updateTitle(initialTitleComponent);
         board.updateLines(initialLineComponents);
         BoardWorker.getBoards().add(board);
+        return board;
     }
 
     // Dan66ika77 changes end
@@ -90,10 +93,11 @@ public class UniversalScoreboardAPI {
      * @param player the player
      * @param initialTitleComponent the initial title
      */
-    public static void createBoard(Player player, String initialTitleComponent) {
+    public static FastBoard createBoard(Player player, String initialTitleComponent) {
         FastBoard board = new FastBoard(player);
         board.updateTitle(ComponentUtil.formatToComponent(initialTitleComponent));
         BoardWorker.getBoards().add(board);
+        return board;
     }
 
     /**
@@ -103,11 +107,12 @@ public class UniversalScoreboardAPI {
      * @param initialTitleComponent the initial title
      * @param initialLineComponents the initial lines
      */
-    public static void createBoard(Player player, String initialTitleComponent, List<String> initialLineComponents) {
+    public static FastBoard createBoard(Player player, String initialTitleComponent, List<String> initialLineComponents) {
         FastBoard board = new FastBoard(player);
         board.updateTitle(ComponentUtil.formatToComponent(initialTitleComponent));
         board.updateLines(ComponentUtil.formatComponentList(initialLineComponents));
         BoardWorker.getBoards().add(board);
+        return board;
     }
 
     // Legacy API - end
