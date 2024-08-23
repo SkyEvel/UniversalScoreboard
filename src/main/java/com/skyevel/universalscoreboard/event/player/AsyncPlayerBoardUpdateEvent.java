@@ -107,4 +107,21 @@ public class AsyncPlayerBoardUpdateEvent extends Event {
   public void setLinesAsStrings(List<String> lines) {
     this.lines = ComponentUtil.deserializeStringList(lines);
   }
+
+  /**
+   * Deprecated legacy method to overwrite the lines of the current Scoreboard.
+   *
+   * @param lines a list of {@link String}s
+   */
+  @Deprecated
+  public void setLines(List<String> lines) { setLinesAsStrings(lines); }
+
+  /**
+   * Deprecated legacy method to overwrite the lines of the current Scoreboard.
+   *
+   * @param lines a list of {@link String}s
+   */
+  @Deprecated
+  public void setLines(String... lines) { setLines(List.of(lines)); }
+
 }

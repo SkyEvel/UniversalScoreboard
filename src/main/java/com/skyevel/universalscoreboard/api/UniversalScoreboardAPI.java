@@ -83,6 +83,7 @@ public class UniversalScoreboardAPI {
      * @param player the player
      * @param titleString the title
      */
+    @Deprecated
     public static void setBoardTitle(Player player, String titleString) {
         getBoard(player).updateTitle(ComponentUtil.formatToComponent(titleString));
     }
@@ -93,6 +94,7 @@ public class UniversalScoreboardAPI {
      * @param player the player
      * @param initialTitleComponent the initial title
      */
+    @Deprecated
     public static FastBoard createBoard(Player player, String initialTitleComponent) {
         FastBoard board = new FastBoard(player);
         board.updateTitle(ComponentUtil.formatToComponent(initialTitleComponent));
